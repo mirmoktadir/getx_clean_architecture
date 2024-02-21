@@ -1,0 +1,1 @@
+# getx_clean_architecture
