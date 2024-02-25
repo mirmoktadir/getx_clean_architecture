@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_clean_architecture/config/theme/app_themes.dart';
-import 'package:getx_clean_architecture/features/news/presentation/views/news_view.dart';
+import 'package:getx_clean_architecture/di.dart';
 
-void main() {
+import 'features/user/presentation/views/user_list_view.dart';
+
+void main() async {
+  await initDependency();
   runApp(const MyApp());
 }
 
@@ -12,11 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: theme(),
-      home: const NewsView(),
+      home: UserListView(),
       //  home: const NewsView(),
     );
   }
