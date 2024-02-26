@@ -5,10 +5,10 @@ import 'package:getx_clean_architecture/features/user/data/models/user.dart';
 import 'package:getx_clean_architecture/features/user/domain/repositories/user_repository.dart';
 
 @immutable
-class CreateUserUserCase implements UseCase<bool, CreateUserParams> {
+class CreateUserUseCase implements UseCase<bool, CreateUserParams> {
   final UserRepository userRepository;
 
-  const CreateUserUserCase(this.userRepository);
+  const CreateUserUseCase(this.userRepository);
   @override
   Future<Either<String, bool>> call(CreateUserParams params) async {
     return await userRepository.createUser(params.user);
@@ -19,5 +19,5 @@ class CreateUserUserCase implements UseCase<bool, CreateUserParams> {
 class CreateUserParams {
   final User user;
 
-  const CreateUserParams({required this.user});
+  const CreateUserParams(this.user);
 }

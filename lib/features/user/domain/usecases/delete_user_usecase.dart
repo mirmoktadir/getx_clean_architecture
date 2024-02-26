@@ -20,5 +20,5 @@ class DeleteUserUseCase implements UseCase<bool, DeleteUserParams> {
 class DeleteUserParams {
   final User user;
 
-  const DeleteUserParams({required this.user});
+  const DeleteUserParams(this.user);
 }

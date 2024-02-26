@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:getx_clean_architecture/common/repository/repository_helper.dart';
-import 'package:getx_clean_architecture/features/user/data/data_sources/user_remote_data_source.dart';
+import 'package:getx_clean_architecture/features/user/data/datasources/user_remote_data_source.dart';
 import 'package:getx_clean_architecture/features/user/data/models/user.dart';
 import 'package:getx_clean_architecture/features/user/domain/repositories/user_repository.dart';
 

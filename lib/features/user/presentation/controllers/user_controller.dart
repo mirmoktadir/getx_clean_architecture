@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:getx_clean_architecture/common/controller/base_controller.dart';
 import 'package:getx_clean_architecture/features/user/data/models/user.dart';
 import 'package:getx_clean_architecture/features/user/domain/entites/user_entity.dart';
-import 'package:getx_clean_architecture/features/user/domain/usecases/craete_user_usercase.dart';
+import 'package:getx_clean_architecture/features/user/domain/usecases/create_user_usecase.dart';
 import 'package:getx_clean_architecture/features/user/domain/usecases/delete_user_usecase.dart';
 import 'package:getx_clean_architecture/features/user/domain/usecases/get_users_usecase.dart';
 import 'package:getx_clean_architecture/features/user/domain/usecases/update_user_usecase.dart';
@@ -12,13 +12,13 @@ import 'package:getx_clean_architecture/features/user/domain/usecases/update_use
 class UserController extends GetxController
     with StateMixin<List<User>>, BaseController {
   final GetUsersUseCase getUsersUseCase;
-  final CreateUserUserCase createUserUserCase;
+  final CreateUserUseCase createUserUseCase;
   final UpdateUserUseCase updateUserUseCase;
   final DeleteUserUseCase deleteUserUseCase;
 
   UserController(
       {required this.getUsersUseCase,
-      required this.createUserUserCase,
+      required this.createUserUseCase,
       required this.updateUserUseCase,
       required this.deleteUserUseCase});
 
@@ -26,15 +26,15 @@ class UserController extends GetxController
   Either<String, List<User>>? failureOrSuccess;
 
   Future<void> createUser(User user) async {
-    createItem(createUserUserCase.call(CreateUserParams(user: user)));
+    createItem(createUserUseCase.call(CreateUserParams(user)));
   }
 
   Future<void> updateUser(User user) async {
-    updateItem(updateUserUseCase.call(UpdateUserParams(user: user)));
+    updateItem(updateUserUseCase.call(UpdateUserParams(user)));
   }
 
   Future<void> deleteUser(User user) async {
-    deleteItem(deleteUserUseCase.call(DeleteUserParams(user: user)));
+    deleteItem(deleteUserUseCase.call(DeleteUserParams(user)));
   }
 
   Future<void> getUserList({

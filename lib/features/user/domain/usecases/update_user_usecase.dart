@@ -20,5 +20,5 @@ class UpdateUserUseCase implements UseCase<bool, UpdateUserParams> {
 class UpdateUserParams {
   final User user;
 
-  const UpdateUserParams({required this.user});
+  const UpdateUserParams(this.user);
 }

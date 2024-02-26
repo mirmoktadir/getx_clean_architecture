@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 import 'common/network/dio_client.dart';
-import 'features/user/data/data_sources/user_remote_data_source.dart';
+import 'features/user/data/datasources/user_remote_data_source.dart';
 import 'features/user/data/repositories/user_repository_impl.dart';
 import 'features/user/domain/repositories/user_repository.dart';
-import 'features/user/domain/usecases/craete_user_usercase.dart';
+import 'features/user/domain/usecases/create_user_usecase.dart';
 import 'features/user/domain/usecases/delete_user_usecase.dart';
 import 'features/user/domain/usecases/get_users_usecase.dart';
 import 'features/user/domain/usecases/update_user_usecase.dart';
@@ -18,7 +18,7 @@ Future<void> initDependency() async {
   getIt.registerFactory(
     () => UserController(
       getUsersUseCase: getIt<GetUsersUseCase>(),
-      createUserUserCase: getIt<CreateUserUserCase>(),
+      createUserUseCase: getIt<CreateUserUseCase>(),
       updateUserUseCase: getIt<UpdateUserUseCase>(),
       deleteUserUseCase: getIt<DeleteUserUseCase>(),
     ),
@@ -26,8 +26,7 @@ Future<void> initDependency() async {
 
   // User Use cases
   getIt.registerLazySingleton(() => GetUsersUseCase(getIt<UserRepository>()));
-  getIt
-      .registerLazySingleton(() => CreateUserUserCase(getIt<UserRepository>()));
+  getIt.registerLazySingleton(() => CreateUserUseCase(getIt<UserRepository>()));
   getIt.registerLazySingleton(() => UpdateUserUseCase(getIt<UserRepository>()));
   getIt.registerLazySingleton(() => DeleteUserUseCase(getIt<UserRepository>()));
 
